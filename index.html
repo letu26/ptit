@@ -638,7 +638,385 @@ public class DijkstraMatrix {
 //→ đến 5 = 11
 </code></pre>
 </details>
+<details>
+    <summary>7. DFS (Danh sách kề)</summary>
+    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
 
+<pre><code>
+import java.util.*;
+
+public class DFSPathInput {
+    static List<List<Integer>> adj;
+    static boolean[] visited;
+    static int[] parent;
+    static boolean found = false;
+
+    static void dfs(int u, int v) {
+        visited[u] = true;
+
+        if (u == v) {
+            found = true;
+            return;
+        }
+
+        for (int x : adj.get(u)) {
+            if (!visited[x]) {
+                parent[x] = u;
+                dfs(x, v);
+                if (found) return;
+            }
+        }
+    }
+
+    static void printPath(int u, int v) {
+        if (!found) {
+            System.out.println("Khong co duong di tu " + u + " den " + v);
+            return;
+        }
+
+        List<Integer> path = new ArrayList<>();
+        for (int cur = v; cur != -1; cur = parent[cur]) {
+            path.add(cur);
+        }
+        Collections.reverse(path);
+
+        System.out.print("Duong di tu " + u + " den " + v + ": ");
+        for (int x : path) {
+            System.out.print(x + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nhap so dinh n: ");
+        int n = sc.nextInt();
+
+        System.out.print("Nhap so canh m: ");
+        int m = sc.nextInt();
+
+        adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
+
+        System.out.println("Nhap cac canh:");
+        for (int i = 0; i < m; i++) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            adj.get(a).add(b);
+            adj.get(b).add(a); // bỏ dòng này nếu đồ thị có hướng
+        }
+
+        visited = new boolean[n];
+        parent = new int[n];
+        Arrays.fill(parent, -1);
+
+        System.out.print("Nhap dinh bat dau u: ");
+        int u = sc.nextInt();
+
+        System.out.print("Nhap dinh ket thuc v: ");
+        int v = sc.nextInt();
+
+        dfs(u, v);
+        printPath(u, v);
+    }
+}
+//input
+//6
+//6
+//0 1
+//0 2
+//1 3
+//2 4
+//3 5
+//4 5
+/0
+/5
+//output
+//Duong di tu 0 den 5: 0 1 3 5
+</code></pre>
+</details>
+<details>
+    <summary>8. DFS (Ma trận kề)</summary>
+    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
+
+<pre><code>
+import java.util.*;
+
+public class DFSAdjMatrix {
+    static int[][] adj;      // ma trận kề
+    static boolean[] visited;
+    static int[] parent;
+    static int n;
+    static boolean found = false;
+
+    static void dfs(int u, int v) {
+        visited[u] = true;
+
+        if (u == v) {
+            found = true;
+            return;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (adj[u][i] == 1 && !visited[i]) {
+                parent[i] = u;
+                dfs(i, v);
+                if (found) return; // dừng khi đã tìm thấy v
+            }
+        }
+    }
+
+    static void printPath(int u, int v) {
+        if (!found) {
+            System.out.println("Khong co duong di tu " + u + " den " + v);
+            return;
+        }
+
+        List<Integer> path = new ArrayList<>();
+        for (int cur = v; cur != -1; cur = parent[cur]) {
+            path.add(cur);
+        }
+        Collections.reverse(path);
+
+        System.out.print("Duong di tu " + u + " den " + v + ": ");
+        for (int x : path) {
+            System.out.print(x + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nhap so dinh n: ");
+        n = sc.nextInt();
+
+        adj = new int[n][n];
+        System.out.println("Nhap ma tran ke:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                adj[i][j] = sc.nextInt();
+            }
+        }
+
+        visited = new boolean[n];
+        parent = new int[n];
+        Arrays.fill(parent, -1);
+
+        System.out.print("Nhap dinh bat dau u: ");
+        int u = sc.nextInt();
+
+        System.out.print("Nhap dinh ket thuc v: ");
+        int v = sc.nextInt();
+
+        dfs(u, v);
+        printPath(u, v);
+    }
+}
+//input
+//6
+//0 1 1 0 0 0
+//1 0 0 1 0 0
+//1 0 0 0 1 0
+//0 1 0 0 0 1
+//0 0 1 0 0 1
+//0 0 0 1 1 0
+//0 5
+//output
+//Duong di tu 0 den 5: 0 1 3 5
+</code></pre>
+</details>
+<details>
+    <summary>9. BFS (Danh sách kề)</summary>
+    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
+
+<pre><code>
+import java.util.*;
+
+public class BFSAdjList {
+    static List<List<Integer>> adj;
+    static boolean[] visited;
+    static int[] parent;
+    static int n;
+
+    static void bfs(int u, int v) {
+        Queue<Integer> queue = new LinkedList<>();
+        visited[u] = true;
+        queue.add(u);
+
+        while (!queue.isEmpty()) {
+            int cur = queue.poll();
+
+            if (cur == v) return; // tìm thấy v thì dừng
+
+            for (int x : adj.get(cur)) {
+                if (!visited[x]) {
+                    visited[x] = true;
+                    parent[x] = cur;
+                    queue.add(x);
+                }
+            }
+        }
+    }
+
+    static void printPath(int u, int v) {
+        if (!visited[v]) {
+            System.out.println("Khong co duong di tu " + u + " den " + v);
+            return;
+        }
+
+        List<Integer> path = new ArrayList<>();
+        for (int cur = v; cur != -1; cur = parent[cur]) {
+            path.add(cur);
+        }
+        Collections.reverse(path);
+
+        System.out.print("Duong di tu " + u + " den " + v + ": ");
+        for (int x : path) {
+            System.out.print(x + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nhap so dinh n: ");
+        n = sc.nextInt();
+
+        System.out.print("Nhap so canh m: ");
+        int m = sc.nextInt();
+
+        adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
+
+        System.out.println("Nhap cac canh:");
+        for (int i = 0; i < m; i++) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            adj.get(a).add(b);
+            adj.get(b).add(a); // bỏ dòng này nếu đồ thị có hướng
+        }
+
+        visited = new boolean[n];
+        parent = new int[n];
+        Arrays.fill(parent, -1);
+
+        System.out.print("Nhap dinh bat dau u: ");
+        int u = sc.nextInt();
+
+        System.out.print("Nhap dinh ket thuc v: ");
+        int v = sc.nextInt();
+
+        bfs(u, v);
+        printPath(u, v);
+    }
+}
+//input
+//6
+//6
+//0 1
+//0 2
+//1 3
+//2 4
+//3 5
+//4 5
+//0
+//5
+//output
+//Duong di tu 0 den 5: 0 1 3 5
+</code></pre>
+</details>
+<details>
+    <summary>10. BFS (Ma trận kề)</summary>
+    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
+
+<pre><code>
+import java.util.*;
+
+public class BFSAdjMatrix {
+    static int[][] adj;      // ma trận kề
+    static boolean[] visited;
+    static int[] parent;
+    static int n;
+
+    static void bfs(int u, int v) {
+        Queue<Integer> queue = new LinkedList<>();
+        visited[u] = true;
+        queue.add(u);
+
+        while (!queue.isEmpty()) {
+            int cur = queue.poll();
+
+            if (cur == v) return; // tìm thấy v thì dừng
+
+            for (int i = 0; i < n; i++) {
+                if (adj[cur][i] == 1 && !visited[i]) {
+                    visited[i] = true;
+                    parent[i] = cur;
+                    queue.add(i);
+                }
+            }
+        }
+    }
+
+    static void printPath(int u, int v) {
+        if (!visited[v]) {
+            System.out.println("Khong co duong di tu " + u + " den " + v);
+            return;
+        }
+
+        List<Integer> path = new ArrayList<>();
+        for (int cur = v; cur != -1; cur = parent[cur]) {
+            path.add(cur);
+        }
+        Collections.reverse(path);
+
+        System.out.print("Duong di tu " + u + " den " + v + ": ");
+        for (int x : path) {
+            System.out.print(x + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nhap so dinh n: ");
+        n = sc.nextInt();
+
+        adj = new int[n][n];
+        System.out.println("Nhap ma tran ke:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                adj[i][j] = sc.nextInt();
+            }
+        }
+
+        visited = new boolean[n];
+        parent = new int[n];
+        Arrays.fill(parent, -1);
+
+        System.out.print("Nhap dinh bat dau u: ");
+        int u = sc.nextInt();
+
+        System.out.print("Nhap dinh ket thuc v: ");
+        int v = sc.nextInt();
+
+        bfs(u, v);
+        printPath(u, v);
+    }
+}
+//input 
+//6
+//0 1 1 0 0 0
+//1 0 0 1 0 0
+//1 0 0 0 1 0
+//0 1 0 0 0 1
+//0 0 1 0 0 1
+//0 0 0 1 1 0
+//0 5
+//output
+//Duong di tu 0 den 5: 0 1 3 5
+</code></pre>
+</details>
 <script>
 function copyFromDetails(btn) {
     const details = btn.closest("details");
