@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <title>hello ptit</title>
 
     <style>
-        
+        body {
+            font-size: 16px;
+            font-family: "Times New Roman", Times;
+        }
+
+        p {
+            color: red;
+            font-weight: 600;
+        }
+
+        span{
+            font-size: 20px;
+            font-weight: 600;
+        }
         .copy-btn {
             position: absolute;
             top: 12px;
@@ -25,1009 +39,444 @@
 </head>
 
 <body>
-<details>
-    <summary>1. AVL Tree</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋</button>
+    <a href="decuong.docx" download>
+    📥 Tải file
+</a>
+    <details>
+        <summary>End Test</summary>
+        <button class="copy-btn" onclick="copyFromDetails(this)">📋</button>
 
-<pre><code>
-package hihi;
+        <pre><code>
+<span>A.	Phần lý thuyết </span>
+<p>Câu 1: 1 điểm</p>
+Câu 1: Lỗi phần mềm là gì? Nguyên nhân gây ra lỗi phần mềm?
+Trả lời 
+	Lỗi phần mềm (software error) là các phần code sai do lôi cú pháp, logic hoăc lỗi do phân tích, thiết kế
+–	Là lỗi do con người gây ra (thường là các lập trình viên)
+–	Lỗi phần mềm có thể là lỗi cú pháp hoặc lỗi logic
+	Nguyên nhân gây ra lỗi phần mềm
+(1)	. Định nghĩa sai yêu cầu của khách hàng
+-	Đây được coi là gốc rễ của việc gây ra lỗi phần mềm
+-	Hiểu sai yêu cầu của khách hàng
+-	Yêu cầu của khách hàng không được làm rõ
+-	Triển khai phần mềm thiếu yêu cầu của khách  hàng
+-	Khách hàng đưa ra quá nhiều yêu cầu không  cần thiết và không liên quan
+(2)	. Thất bại trong việc giao tiếp giữa người phát triển  và khách hàng
+-	Có sự không hiểu cấu trúc của tài liệu yêu cầu phần mềm
+-	Không nắm bắt được những thay đổi được viết trong  tài liệu yêu cầu
+-	Những thay đổi được yêu cầu từ khách hàng nhưng  ko được lưu dưới dạng văn bản
+Thiếu sự chú ý tới:
+-	Thông điệp của khách hàng đề cập tới việc thay đổi yêu cầu
+-	Trả lời của khách hàng tới những câu hỏi mà  developer đặt ra
+(3)	.Tạo ra độ lệch cố ý trong yêu cầu phần  mềm
+-	Lập trình viên sử dụng những module phần  mềm có sẵn từ những dự án trước mà không  thay đổi cho phù hợp với yêu cầu của dự án  mới nhằm tiết kiệm thời gian
+-	Bỏ qua một vài yêu cầu của phần mềm do  thời gian quá gấp hoặc chi phí không đủ đáp  ứng.
+(4)	. Lỗi thiết kế logic
+(5)	. Lỗi mã hóa
+-	Lỗi logic
+-	Lỗi cú pháp
+-	Lỗi thời gian chạy
+(6)	.Không tuân theo các tài liệu và cấu trúc code
+-	Không tuân theo các chuẩn tài liệu (templates…)
+-	Không tuân theo các cấu trúc mã hóa
+(7)	Rút ngắn quá trình kiểm thử phần mềm
+-	Do áp lực về thời gian, tiến độ hoàn thành dự án
+-	Lập kế hoạch kiểm thử không đầy đủ
+-	Không báo cáo đầy đủ các lỗi
+-	Báo cáo không chính xác lỗi
+(8)	. Lỗi thủ tục
+-	Chỉ dẫn cho người dùng những hoạt động cần thiết ở  một quá trình. Nó quan trọng trong các hệ thống phần mềm  phức tạp khi quá trình xử lý được thực hiện qua nhiều  bước. Mỗi bước có nhiều dạng dữ liệu và cho phép  kiểm tra kết quả trung gian
+(9)	. Lỗi tài liệu
+-	Sai sót trong hồ sơ thiết kế
+-	Sai sót trong việc lập tài liệu hướng dẫn sử dụng
+-	Các danh sách chức năng không có trong phần mềm nhưng lại có trong tài liệu.
+Câu 2: Kể ra các độ đo đặc trưng chất lượng chính của McCall? Giải thích nội dung của nó?
+Trả lời:
+McCall có 11 tiêu chí; chia thành các nhóm.
+-	Tiêu chí vận hành sản phẩm
++ Tính đúng đắn – Correctness : Đặc tả về độ chính sác, tính toàn vẹn, thời gian của outputs.
++ Tính tin cậy – Reliability : Định ra tỉ lệ lỗi cho từng chức năng hoặc cả hệ thống
++ Tính hiệu quả - Efficiency : Tài ng phần cứng cần để thực hiện các chức năng của phần mềm
++ Tính toàn vẹn – Integrity : Bảo mật hệ thống, ngăn truy cập trái phép
++ Tính khả dụng - Usability : Tính dễ học, dễ dùng, hiệu quả.
+-	Tiêu chí sửa đổi sản phẩm
++ Tính bảo trì được – Maintainability : Mức công sức cần đề tìm nguyên nhân+ sửa + xác nhận đã sửa đc failures.(Liên quan đến cấu trúc modul, kiến trúc , thiết kế và các tài liệu)
++ Tính linh hoạt – Flexibility : Bảo trì cải tiến dễ dàng.
++ Tính kiểm thử được – Testability : Có lưu lại kq trung gian để hỗ trợ test? Có tạo file log, backup?
+-	 Tiêu chí chuyển giao sản phẩm
++ Khả năng di động – Portability : Cài trong môi trường mới (phần cứng khác, hệ điều hành khác,…) mà vẫn duy trì môi trường cũ.
++ Khả năng tái sử dụng – Reusability : Có thể tái sử dụng các phần của phần mềm cho ứ/dụng khác
++ Khả năng tương thích – Interoperability : phần mềm có cần interface với các hệ thống đã có.
+Câu 3: Mục tiêu của rà soát (review)? Liệt kê các loạt rà soát thiết kế
+Trả lời:
+	Mục tiêu
+Mục đích được chia làm 2 loại: mục đích trực tiếp và gián tiếp.
+Mục đích trực tiếp:
+o Phát hiện lỗi phân tích và thiết kế.
+o Xác định các rủi ro mới.
+o Xác định sự sai lệch so với mẫu, các kiểu thủ tục và qui ước.
+o Để phê chuẩn sản phẩm của phân tích hoặc thiết kế.
+Mục đích gián tiếp:
+o Nơi họp mặt không chính thức để trao đổi về những kiến thức chuyên
+môn.
+o Ghi lại những lỗi phân tích và thiết kế sẽ hỗ trợ một cơ sở cho những  hoạt động sửa chữa lỗi trong tương lai.
+	Các loại rà soát thiết kế
+(1)	.Rà soát không chính thức (Informal Review)
+o	Thực hiện nhanh, không có quy trình chặt chẽ.
+o	Thường là trao đổi trong nhóm để phát hiện lỗi ban đầu.
+(2)	.Rà soát đồng nghiệp (Peer Review)
+o	Các thành viên cùng kiểm tra sản phẩm của nhau.
+o	Giúp phát hiện lỗi nhỏ và chia sẻ kinh nghiệm.
+(3)	.Rà soát đi bộ (Walkthrough)
+o	Người tạo tài liệu/mã dẫn dắt nhóm đi qua từng phần để giải thích.
+o	Nhóm đặt câu hỏi, góp ý để phát hiện lỗi hoặc điểm chưa rõ.
+(4)	.Rà soát kỹ thuật (Technical Review)
+o	Tập trung vào khía cạnh kỹ thuật: kiến trúc, thuật toán, giao diện, hiệu năng.
+o	Nhóm chuyên gia cùng phân tích để phát hiện lỗi logic hoặc sai sót kỹ thuật.
+(5)	.Rà soát kiểm tra (Inspection)
+o	Phương pháp nghiêm ngặt nhất, có checklist, biên bản, thống kê lỗi.
+o	Được coi là công cụ mạnh mẽ nhất để đảm bảo chất lượng.
+(6)	.Rà soát chính thức (Formal Review)
+o	Có quy trình chuẩn, người điều phối, người ghi chép, biên bản.
+o	Áp dụng cho các tài liệu quan trọng (yêu cầu, thiết kế hệ thống).
+ Câu 4: Đảm bảo chất lượng phần mềm là gì? Thường gồm những hoạt động nào?
+Trả lời :
+	Khái niệm đảm bảo chất lượng phần mềm được xác định như sau :
+Theo IEEE: Chất lượng phần mềm là mức độ mà hệ thống, thành phần hoặc tiến trình:
+•	Đáp ứng được các yêu cầu đã đặc tả.
+•	Thỏa mãn nhu cầu và mong đợi của khách hàng/người dùng.
+Đảm bảo chất lượng phần mềm (SQA) là:
+Đảm bảo chất lượng phần mềm là một tập các hoạt động đã được lập kế hoạch và có hệ thống, cần thiết để cung cấp đầy đủ sự tin cậy vào quy trình phát triển phần mềm hay quy trình bảo trì phần mềm của sản phẩm hệ thống phần mềm phù hợp với các yêu cầu chức năng kỹ thuật cũng như với các yêu cầu quản lý mà giữ cho lịch biểu và hoạt động trong phạm vi ngân sách.
+	Các hoạt động thường có trong SQA
+(1)	Xác minh (Verification)
+o	Kiểm tra xem sản phẩm của từng giai đoạn phát triển có thỏa mãn điều kiện đặt ra từ đầu giai đoạn đó hay không.
+o	Tập trung vào tính nhất quán với đặc tả.
+(2)	Thẩm định (Validation)
+o	Đánh giá hệ thống khi kết thúc hoặc trong quá trình phát triển để xem có thỏa mãn yêu cầu gốc của khách hàng hay không.
+o	Tập trung vào sự hài lòng của người dùng.
+(3)	Đánh giá chất lượng/Chứng nhận (Qualification)
+o	Xác định hệ thống hoặc thành phần có phù hợp để sử dụng trong thực tế hay không.
+o	Tập trung vào khía cạnh vận hành và bảo trì.
+(4)	Rà soát (Review)
+o	Kiểm tra tài liệu, thiết kế, mã nguồn để phát hiện lỗi sớm.
+o	Có nhiều loại: informal review, peer review, walkthrough, technical review, inspection.
+(5)	Kiểm thử (Testing)
+o	Thực hiện các ca kiểm thử để phát hiện lỗi trong quá trình chạy.
+o	Bao gồm kiểm thử đơn vị, tích hợp, hệ thống, chấp nhận.
+(6)	Quản lý cấu hình phần mềm (SCM)
+o	Kiểm soát phiên bản, thay đổi, và đảm bảo tính nhất quán của sản phẩm.
+(7)	Đánh giá quy trình và sản phẩm
+o	Đo lường, phân tích để cải tiến quy trình phát triển và bảo trì.
+(8)	IV&V (Independent Verification and Validation)
+o	Xác minh và thẩm định độc lập bởi nhóm/tổ chức khác để tăng tính khách quan.
 
-import java.util.Scanner;
+Câu 5: Mục tiêu của SQA là gì? Các hoạt động chính đảm bảo chất lượng phần mềm là những hoạt động nào?
+Trả lời :
+Đảm bảo chất lượng phần mềm là các hoạt động nhằm mục tiêu là sản xuất ra phần mềm có chất lượng cao.
+	Mục tiêu của hoạt động SQA trong phát triển phần mềm.
+-	Đảm bảo một mức độ tin cậy chấp nhận được là phần mềm sẽ tuân thủ các yêu cầu kỹ thuật về chức năng.
+-	Đảm bảo một mức độ tin cậy chấp nhận được là phần mềm sẽ tuân thủ các yêu cầu quản lý về thời gian và tài chính.
+-	Khởi đầu và quản lý các hoạt động để phát triển phần mềm và các hoạt động SQA được cải thiện và đạt hiệu quả cao hơn.
+	Mục tiêu của hoạt động SQA trong bảo trì phần mềm
+-	Đảm bảo một mức độ tin cậy chấp nhận được là các hoạt động bảo trì phần mềm sẽ tuân thủ các yêu cầu kỹ thuật về chức năng.
+-	Đảm bảo một mức độ tin cậy chấp nhận được là các hoạt động bảo trì phần mềm sẽ tuân thủ các yêu cầu quản lý về thời gian và tài chính.
+-	Khởi đầu và quản lý các hoạt động để bảo trì phần mềm và hoạt động SQA được cải tiến hiệu quả.
 
-class AVLTree {
-    class Node {
-        int key, height;
-        Node left, right;
+	Có 7 hoạt động chính:
+o	Áp dụng công nghệ kĩ thuật hiệu quả (phương pháp, công cụ)
+o	Tiến hành rà soát kỹ thuật chính thức
+o	Thực hiện kiểm thử nhiều tầng
+o	Tuân theo các chuẩn phát triển
+o	Kiểm soát tài liệu PM và thay đổi của chúng
+o	Thực hiện đo lường
+o	Báo cáo và bảo quản lý các báo cáo.
+Câu 6: Ca kiểm thử là cái gì? Mục tiêu thiết kế ca kiểm thử? 
+•	Ca kiểm thử (test case): là một tập hợp các điều kiện, biến số và hành động cụ thể được thiết kế để kiểm tra xem một chức năng hoặc tính năng của phần mềm có hoạt động đúng theo yêu cầu hay không.
+•	Mục đích:
+-	Phát hiện lỗi (Mục tiêu quan trọng nhất): Mục tiêu tối thượng là tìm ra càng nhiều lỗi (bugs) càng tốt
+-	Đảm bảo độ bao phủ (Coverage): Đảm bảo tất cả các yêu cầu (requirements) và các luồng nghiệp vụ (business flows) đều đã được kiểm tra. Không bỏ sót chức năng nào.
+-	Tối ưu hóa nguồn lực: Tạo ra một bộ test case nhỏ nhất nhưng có khả năng phát hiện ra nhiều lỗi nhất. Điều này giúp tiết kiệm thời gian và công sức kiểm thử (tránh việc test trùng lặp không cần thiết).
+-	Tính tái sử dụng và quản lý: Test case được thiết kế tốt giúp việc thực hiện kiểm thử có thể lặp lại (ví dụ: chạy lại khi có phiên bản mới - Regression Testing) và giúp người quản lý theo dõi tiến độ dự án.
+-	Chứng minh chất lượng: Cung cấp bằng chứng cho thấy phần mềm đáp ứng được các tiêu chuẩn chất lượng và yêu cầu đặt ra.
+Câu 7: Kiểm thử hộp trắng là gì? Nêu các đặc trưng của nó?	
+•	Kiểm thử hộp trắng là phương pháp kiểm thử phần mềm dựa vào việc truy cập và kiểm tra cấu trúc mã nguồn (source code) và thuật toán của chương trình bên trong của phần mềm.
+Các đặc trưng chính:
+•	Yêu cầu: Người kiểm thử phải biết lập trình và hiểu thuật toán.
+•	Đối tượng: Tập trung kiểm tra các dòng lệnh, cấu trúc rẽ nhánh (if/else), vòng lặp và luồng dữ liệu.
+•	Phạm vi: Thường áp dụng chủ yếu ở mức Kiểm thử đơn vị (Unit Testing).
+•	Mục tiêu: Phát hiện lỗi logic, lỗi cú pháp và tối ưu hóa mã lệnh.
+•	Có 2 hoạt động kiểm thử hộp trắng: Kiểm thử luồng điều khiển và kiểm thử dòng dữ liệu.
+Câu 8: Kiểm thử hộp đen là gì? Nêu các đặc trưng của nó?	
+•	Kiểm thử hộp đen là phương pháp kiểm thử không quan tâm đến cấu trúc code bên trong. Người kiểm thử coi phần mềm như một chiếc hộp kín, chỉ tập trung kiểm tra đầu vào (Input) và kết quả đầu ra (Output).
+•	Các đặc trưng chính: 
+(1)	 Không cần biết lập trình: Tester không cần hiểu mã nguồn hay thuật toán bên trong.
+(2)	 Dựa trên yêu cầu: Tập trung xác minh xem phần mềm có hoạt động đúng theo tài liệu đặc tả chức năng không.
+(3)	 Góc nhìn người dùng: Mô phỏng thao tác của người dùng cuối (User) để tìm lỗi giao diện hoặc chức năng.
+(4)	 Phạm vi: Thường áp dụng chủ yếu ở Kiểm thử hệ thống (System Testing) và Kiểm thử chấp nhận (Acceptance Testing).
+Câu 9: Quy trình kiểm thử phần mềm nói chung?
+•	 Lập kế hoạch (Test Planning): Xác định mục tiêu, phạm vi, chiến lược, nguồn lực và lịch trình kiểm thử.
+•	Thiết kế kiểm thử (Test Design): Viết các ca kiểm thử (Test Case), chuẩn bị dữ liệu test dựa trên yêu cầu.
+•	 Thiết lập môi trường (Test Environment Setup): Chuẩn bị phần cứng, phần mềm, mạng và server để sẵn sàng chạy test.
+•	 Thực hiện kiểm thử (Test Execution): Chạy các test case, so sánh kết quả và ghi nhận lỗi (Log bug) nếu có.
+•	 Đóng gói kiểm thử (Test Closure): Làm báo cáo tổng kết, đánh giá mức độ hoàn thành và lưu trữ tài liệu.
 
-        Node(int d) {
-            key = d;
-            height = 1;
-        }
+Câu 10: Test plan là gì, gồm những nội dung gì?
+•	Test Plan (Kế hoạch kiểm thử) là một tài liệu chi tiết mô tả chiến lược, phạm vi, nguồn lực và lịch trình cho các hoạt động kiểm thử của một dự án.Nó giống như một "bản đồ chiến thuật" cho cả đội dự án.
+•	Test plant gồm 16 nội dung sau:
+(1)	Mã định danh (Test Plan Identifier): Tên/mã số để quản lý tài liệu.
+(2)	Giới thiệu (Introduction): Mục đích của kế hoạch.
+(3)	Các đối tượng kiểm thử (Test Items): Danh sách các module/phần mềm cần test.
+(4)	Các tính năng CẦN kiểm thử (Features to be tested): Liệt kê chức năng sẽ test.
+(5)	Các tính năng KHÔNG kiểm thử (Features not to be tested): Liệt kê chức năng bỏ qua.
+(6)	Phương pháp tiếp cận (Approach): Chiến lược test (thủ công/tự động, công cụ sử dụng).
+(7)	Tiêu chí đạt/hỏng (Item Pass/Fail Criteria): Điều kiện để xác định một chức năng là Pass hay Fail.
+(8)	Tiêu chí tạm dừng/tiếp tục (Suspension/Resumption Criteria): Khi nào dừng test và khi nào test lại.
+(9)	Sản phẩm bàn giao (Test Deliverables): Test plan, test case, bug report...
+(10)	Nhiệm vụ kiểm thử (Test Tasks): Các công việc cụ thể cần làm.
+(11)	Môi trường kiểm thử (Test Environment): Phần cứng, phần mềm, mạng, database.
+(12)	Trách nhiệm (Responsibilities): Ai làm gì (Test Lead, Tester, Dev...).
+(13)	Nhu cầu nhân sự và đào tạo (Staffing and Training needs): Cần bao nhiêu người, có cần training tool mới không.
+(14)	Lịch trình (Schedule): Mốc thời gian bắt đầu, kết thúc.
+(15)	Rủi ro và dự phòng (Risks and Contingencies): Rủi ro có thể gặp và cách xử lý.
+(16)	Phê duyệt (Approvals): Chữ ký của các bên liên quan (PM, Khách hàng).
+Câu 11: Tại sao phải kiểm thử phần mềm? Mục tiêu kiểm thử là gì?
+Trả lời:
+	Tại sao phải kiểm thử phần mềm?
+Lý do cần kiểm thử phần mềm:
+o	Kiểm thử phần mềm là yếu tố quyết định của SQA và khâu điển hình của rà soát đặc tả thiết kế và lập mã.
+o	Muốn nhìn thấy phần mềm như là một phần tử của hệ thống hoạt động (xem sản phầm)
+o	Hạn chế chi phí phải trả cho các thất bại do lỗi gây ra sau này (hiệu quả)
+o	Có kế hoạch tốt nâng cao chất lượng cho suốt quá trình phát triển (giải pháp)
+Tầm quan trọng của kiểm thử phần mềm:
+o	Chi phí của kiểm thử chiếm: 40% tổng công sức phát triển ≥ 30% tổng thời gian phát triển
+o	Với phần mềm ảnh hưởng tới sinh mạng chi phí có thể gấp từ 3 đến 5 lần tổng chi phí khác cộng lại.
+	Mục tiêu kiểm thử:
+o	Xác định phạm vi kiểm thử
+o	Nhận diện các rủi ro có thể xẩy ra khi thực hiện kiểm thử
+o	Xác định các tiêu chí hoàn thành kiểm thử (acceptance
+o	criteria)
+o	Xác định chiến lược kiểm thử dựa trên phạm vi kiểm thử
+o	Xác định các nguồn lực cho kiểm thử
+o	Xác định các chỉ số để đánh giá kiểm thử
+o	Đưa ra quyết định sớm về việc sử dụng kiểm thử tự động
+o	Xác địnhh các lịch trình, thời gian biểu cụ thể cần đưa ra  các sản phẩm kiểm thử
+o	Giúp các thành viên trong tổ dự án làm việc hiệu quả hơn
+Câu 12: Giải thích sự khác nhau giữa  failure, error, và fault.
+      GIẢI: 
+(1)	Error (Sai sót / Lỗi hành vi)
+•	Định nghĩa: Là hành động sai lầm của con người (Developer, Analyst, Tester...).
+•	Bản chất: Là một hành động hoặc sự hiểu nhầm trong tư duy.
+•	Ví dụ: Lập trình viên hiểu nhầm yêu cầu của khách hàng, hoặc gõ nhầm dấu cộng + thành dấu nhân *.
+(2)	Fault (Lỗi phần mềm / Khiếm khuyết / Bug) - Kết quả trong Code
+•	Tên gọi khác: Bug, Defect.
+•	Định nghĩa: Là kết quả của Error để lại trong phần mềm (mã nguồn, tài liệu). Nó là biểu hiện vật lý của sai sót nằm trong hệ thống.
+•	Bản chất: Nó nằm tĩnh (static) trong dòng code. Nếu chưa chạy chương trình vào dòng đó thì chưa thấy gì cả.
+•	Ví dụ: Dòng code int tong = a * b; (đáng lẽ phải là a + b).
+(3)	Failure (Sự cố / Thất bại)- Hậu quả khi vận hành
+•	Định nghĩa: Là sự khác biệt giữa kết quả thực tế và kết quả mong đợi khi chạy chương trình.
+•	Bản chất: Xảy ra ở trạng thái động (dynamic) khi người dùng hoặc tester sử dụng phần mềm. Nó chỉ xảy ra khi đoạn code chứa Fault được chạy.
+•	Ví dụ: Người dùng nhập 2 và 3, mong đợi kết quả là 5 (tổng), nhưng màn hình lại hiện ra 6 (tích). Sự sai lệch này là Failure.
+<p>Câu 2: 2 điểm</p>
+Lý thuyết nhưng hướng bài tập: Câu hỏi về kiểm thử giao diện GUI, nội dung này đã có trong bài tập lớn của các nhóm, đề nghị học viên ôn tập kỹ để trình bày đủ. Ví dụ của kiểm thử giao diện gồm: màu sắc, bố cục, chính tả, giao diện đồ họa, hộp thoại,….
+Trả lời: 
+Viết như viết test case của bài tập lớn số 2
+	Kiểm thử giao diện đồ họa người dùng (GUI – Graphical User Interface) là quá trình kiểm tra các yếu tố trực quan và tương tác của phần mềm nhằm đảm bảo:
+•	Giao diện hiển thị đúng như thiết kế.
+•	Người dùng có thể thao tác dễ dàng, chính xác.
+•	Không có lỗi về hình ảnh, bố cục, ngôn ngữ, hoặc hành vi.
+	Các nội dung cần kiểm thử trong GUI (trọng tâm hay hỏi)
+Màu sắc (Color)
+•	Màu chữ, màu nền đúng thiết kế
+•	Độ tương phản dễ đọc
+•	Không bị lóa, không trùng màu gây khó nhìn
+Bố cục (Layout)
+•	Các thành phần đúng vị trí: nút, ô nhập, hình ảnh, menu
+•	Không bị lệch, không chồng chéo, không tràn khung
+•	Căn lề đúng, khoảng cách đều
+Chính tả – ngôn ngữ (Spelling & Grammar)
+•	Không sai chính tả
+•	Câu chữ rõ nghĩa, đúng ngữ cảnh
+•	Thống nhất thuật ngữ
+Giao diện đồ họa (Graphics/UI Elements)
+•	Icon hiển thị đúng, không vỡ hình
+•	Ảnh không mờ, không bị kéo giãn
+•	Logo hiển thị đúng kích thước
+Hộp thoại (Dialog, Popup, Alert)
+•	Thông báo đúng nội dung
+•	Nút OK/Cancel hoạt động đúng
+•	Không che nội dung chính
+	<span>B. Phần bài tập</span>
+<p>Câu số 3 (3 điểm): hộp đen.</p>
+Câu hỏi về thiết kế ca kiểm thử theo phương pháp “Phân lớp tương đương” và “Giá trị biên”. Nội dung này đề nghị nghiên cứu kỹ slide Chương 5 và các ví dụ đi kèm để làm.
+Ví dụ như sau:
+Bậc thuế	Phần thu nhập tính thuế/năm (triệu đồng)	Thuế suất (%)
+1	Đến 60	5
+2	Trên 60 đến 120	10
+3	Trên 120 đến 216	15
+4	Trên 216 đến 384	20
+5	Trên 384 đến 624	25
+6	Trên 624 đến 960	30
+7	Trên 960	35
+
+Với yêu cầu trên thì thiết kế ca kiểm thử như sau:
+GIẢI: 
+	Bao gồm biên dưới, loại trừ biên trên cho các khoảng “Trên X đến Y”:
+Bậc 1: 0≤thu nhap ≤6→ 5%
+Bậc 2: 60 &lt; thu  nhap≤120→ 10%
+Bậc 3: 120 &lt; thu  nhap≤216→ 15%
+Bậc 4: 216 &lt; thu  nhap≤384→ 20%
+Bậc 5: 384 &lt; thu nhap≤624→ 25%
+Bậc 6: 624 &lt; thu  nhap≤960→ 30%
+Bậc 7: thu  nhap>960→ 35%
+	Giá trị 0: coi là hợp lệ (không có thu nhập), thuế suất 0% hoặc miễn thuế—tùy yêu cầu hệ thống. Nếu hệ thống áp dụng bậc 1 cho 0, thì thuế = 0 với thuế suất 5% vẫn cho ra 0; nhưng thường nên xử lý riêng là 0%.
+	Giá trị âm: không hợp lệ.
+	Đơn vị: triệu đồng/năm.
+	Phương pháp Phân lớp tương đương: sẽ chia thành 7 lớp tương đương, với 7 khoảng ở trên. Nếu làm kỹ hơn thì sẽ còn trường hợp không có thu nhập (bằng 0) hoặc trường hợp nhập giá trị âm. Từ việc chia thành các lớp tương đương hợp lệ và không hợp lệ sẽ thiết kế các giá trị kiểm thử trong các lớp đó.
+
+Phân lớp tương đương (Equivalence Partitioning)
+Các lớp hợp lệ và không hợp lệ
+	Lớp không hợp lệ (âm): thu  nhap &lt; 0
+	Lớp đặc biệt (0): thu nhap=0
+	Lớp bậc 1: 0&lt;thu  nhap≤60
+	Lớp bậc 2: 60&lt;thu  nhap≤120
+	Lớp bậc 3: 120&lt;thu  nhap≤216
+	Lớp bậc 4: 216&lt;thu  nhap≤384
+	Lớp bậc 5: 384&lt;thu  nhap≤624
+	Lớp bậc 6: 624&lt;thu  nhap≤960
+	Lớp bậc 7: thu nhap>960
+Ca kiểm thử đại diện cho mỗi lớp
+ID	Đầu vào (triệu)	Kỳ vọng bậc	Thuế suất	Ghi chú
+EP-INV-1	-1	Lỗi	—	Dữ liệu không hợp lệ
+EP-ZERO-1	0	Miễn/0%	0%	Trường hợp đặc biệt
+EP-1	30	1	5%	Trong bậc 1
+EP-2	100	2	10%	Trong bậc 2
+EP-3	150	3	15%	Trong bậc 3
+EP-4	300	4	20%	Trong bậc 4
+EP-5	500	5	25%	Trong bậc 5
+EP-6	800	6	30%	Trong bậc 6
+EP-7	1000	7	35%	Trên 960
+Tổng hợp:
+	Hợp lệ: 8 ca
+	Không hợp lệ: 1 ca
+
+	Phương pháp test Biên: làm xây dựng các ca kiểm thử xung quanh giá trị mốc, như ví dụ ở trên thì sẽ xây các ca kiểm thử ở giá trị âm, giá trị 0, giá trị nhỏ hơn 60 một chút, giá trị 60, giá trị hơn 60  một chút, giá trị giữa 60 và 120,……
+Ca kiểm thử quanh từng biên
+
+
+ID	Biên kiểm thử	Thu nhập (triệu)	Bậc thuế kỳ vọng	Thuế suất (%)	Hợp lệ?	Ghi chú
+BV-01	Biên dưới toàn cục	-1	—	—	❌ Không	Dưới 0
+BV-02	Biên dưới toàn cục	0	1	5%	✅ Có	Trường hợp đặc biệt
+BV-03	Biên dưới toàn cục	1	1	5%	✅ Có	Ngay trên 0
+BV-04	Biên 60	59	1	5%	✅ Có	Trước biên 60
+BV-05	Biên 60	60	1	5%	✅ Có	Tại biên 60
+BV-06	Biên 60	61	2	10%	✅ Có	Sau biên 60
+BV-07	Biên 120	119	2	10%	✅ Có	Trước biên 120
+BV-08	Biên 120	120	2	10%	✅ Có	Tại biên 120
+BV-09	Biên 120	121	3	15%	✅ Có	Sau biên 120
+BV-10	Biên 216	215	3	15%	✅ Có	Trước biên 216
+BV-11	Biên 216	216	3	15%	✅ Có	Tại biên 216
+BV-12	Biên 216	217	4	20%	✅ Có	Sau biên 216
+BV-13	Biên 384	383	4	20%	✅ Có	Trước biên 384
+BV-14	Biên 384	384	4	20%	✅ Có	Tại biên 384
+BV-15	Biên 384	385	5	25%	✅ Có	Sau biên 384
+BV-16	Biên 624	623	5	25%	✅ Có	Trước biên 624
+BV-17	Biên 624	624	5	25%	✅ Có	Tại biên 624
+BV-18	Biên 624	625	6	30%	✅ Có	Sau biên 624
+BV-19	Biên 960	959	6	30%	✅ Có	Trước biên 960
+BV-20	Biên 960	960	6	30%	✅ Có	Tại biên 960
+BV-21	Biên 960	961	7	35%	✅ Có	Sau biên 960
+Tổng hợp:
+	Hợp lệ: 20 ca
+	Không hợp lệ: 1 ca
+Loại kiểm thử	Số ca hợp lệ	Số ca không hợp lệ
+Phân lớp tương đương	8	1
+Giá trị biên	20	1
+Tổng cộng	28	2
+
+<p>Câu 4 (4 điểm): hộp trắng.</p>
+	Thực hiện lập trình bằng Java.  
+/ Tự bơi nhé các chú dê ………..java
+Ví dụ : tính tổng: tinhTong(n, array)
+	int total = 0;
+	int i = 0;
+	  while (i < n) {             // Vòng lặp
+	      if (array[i] > 0) {     // Nhánh (Decision 1)
+	          total = total + array[i];
+	      }
+	      if (total > 100) {      // Nhánh (Decision 2)
+	          break;              // Thoát vòng lặp
+	      }
+	     i++;
+	 }
+	 return total;
+	Thiết kế test case để đạt mức phủ cấp 2 (phủ nhánh) và vòng lặp (nếu có).
+Nguyên lí : Mỗi quyết định (hình thoi trong lưu đồ) phải được kiểm tra cả 2 trường hợp: Đúng (True) và Sai (False).
+Trong ví dụ trên có 3 điểm quyết định:
+	i < n (Tại dòng 3 - Vòng lặp cũng là một dạng điều kiện)
+	array[i] > 0 (Tại dòng 4)
+	total > 100 (Tại dòng 7)
+Bảng thiết kế Test Case phủ nhánh:
+Test Case ID	Input (n, array)	Mục tiêu phủ	Kết quả mong đợi
+TC01	n = 0, array = []	Dòng 3 (Sai). (Không vào vòng lặp)	total = 0
+TC02	n = 1, array = [-5]	Dòng 3 (Đúng) -> Dòng 4 (Sai) -> Dòng 7 (Sai). (Vào loop, số âm, tổng chưa > 100)	total = 0
+TC03	n = 1, array = [10]	Dòng 3 (Đúng) -> Dòng 4 (Đúng) -> Dòng 7 (Sai). (Vào loop, số dương, tổng chưa > 100)	total = 10
+TC04	n = 2, array = [60, 50]	Dòng 3 (Đúng) -> Dòng 4 (Đúng) -> Dòng 7 (Đúng). (Vòng 1: cộng 60. Vòng 2: cộng 50 -> Tổng = 110 > 100 -> Break)	total = 110
+
+	Thực hiện viết Unit Test (cộng điểm).
+
+Ví dụ với Junit:
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class CalculatorTest {
+
+    @Test
+    public void testPositiveNumber() {
+        assertEquals("Positive", Calculator.checkNumber(5));
     }
 
-    Node root;
-
-    int height(Node N) {
-        if (N == null) return 0;
-        return N.height;
+    @Test
+    public void testZeroNumber() {
+        assertEquals("Zero", Calculator.checkNumber(0));
     }
 
-    int max(int a, int b) {
-        return (a > b) ? a : b;
+    @Test
+    public void testNegativeNumber() {
+        assertEquals("Negative", Calculator.checkNumber(-3));
     }
 
-    int getBalance(Node N) {
-        if (N == null) return 0;
-        return height(N.left) - height(N.right);
+    @Test
+    public void testSumZero() {
+        assertEquals(0, Calculator.sumUpToN(0));
     }
 
-    Node rightRotate(Node y) {
-        System.out.println("Thực hiện Right Rotate tại node " + y.key);
-        Node x = y.left;
-        Node T2 = x.right;
-
-        x.right = y;
-        y.left = T2;
-
-        y.height = max(height(y.left), height(y.right)) + 1;
-        x.height = max(height(x.left), height(x.right)) + 1;
-
-        return x;
+    @Test
+    public void testSumOne() {
+        assertEquals(1, Calculator.sumUpToN(1));
     }
 
-    Node leftRotate(Node x) {
-        System.out.println("Thực hiện Left Rotate tại node " + x.key);
-        Node y = x.right;
-        Node T2 = y.left;
-
-        y.left = x;
-        x.right = T2;
-
-        x.height = max(height(x.left), height(x.right)) + 1;
-        y.height = max(height(y.left), height(y.right)) + 1;
-
-        return y;
-    }
-
-    Node insert(Node node, int key) {
-        if (node == null)
-            return new Node(key);
-
-        if (key < node.key)
-            node.left = insert(node.left, key);
-        else if (key > node.key)
-            node.right = insert(node.right, key);
-        else {
-            System.out.println("⚠ Giá trị " + key + " đã tồn tại!");
-            return node;
-        }
-
-        node.height = 1 + max(height(node.left), height(node.right));
-
-        int balance = getBalance(node);
-
-        // LL
-        if (balance > 1 && key < node.left.key)
-            return rightRotate(node);
-
-        // RR
-        if (balance < -1 && key > node.right.key)
-            return leftRotate(node);
-
-        // LR
-        if (balance > 1 && key > node.left.key) {
-            node.left = leftRotate(node.left);
-            return rightRotate(node);
-        }
-
-        // RL
-        if (balance < -1 && key < node.right.key) {
-            node.right = rightRotate(node.right);
-            return leftRotate(node);
-        }
-
-        return node;
-    }
-
-    void insert(int key) {
-        root = insert(root, key);
-    }
-
-    void inorder(Node node) {
-        if (node != null) {
-            inorder(node.left);
-            System.out.print(node.key + " ");
-            inorder(node.right);
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        AVLTree tree = new AVLTree();
-
-        System.out.print("Nhập số lượng phần tử: ");
-        int n = sc.nextInt();
-
-        for (int i = 0; i < n; i++) {
-            System.out.print("Nhập giá trị thứ " + (i + 1) + ": ");
-            int key = sc.nextInt();
-
-            System.out.println("\nChèn " + key + ":");
-            tree.insert(key);
-
-            System.out.print("Cây hiện tại (Inorder): ");
-            tree.inorder(tree.root);
-            System.out.println("\n-----------------------");
-        }
-
-        sc.close();
+    @Test
+    public void testSumFive() {
+        assertEquals(15, Calculator.sumUpToN(5));
     }
 }
+
 </code></pre>
-</details>
-<details>
-    <summary>2. Dijkstra-Tìm đường đi ngắn nhất (Danh sách kề)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
+    </details>
 
-<pre><code>
-package hihi;
+    <script>
+        function copyFromDetails(btn) {
+            const details = btn.closest("details");
+            const code = details.querySelector("code").innerText;
 
-import java.util.*;
-
-public class DijkstraInput {
-  static class Edge {
-    int to, weight;
-
-    Edge(int to, int weight) {
-      this.to = to;
-      this.weight = weight;
-    }
-  }
-
-  static class Node implements Comparable<Node> {
-    int vertex, dist;
-
-    Node(int vertex, int dist) {
-      this.vertex = vertex;
-      this.dist = dist;
-    }
-
-    public int compareTo(Node other) {
-      return Integer.compare(this.dist, other.dist);
-    }
-  }
-
-  static void dijkstra(List<List<Edge>> graph, int start) {
-    int n = graph.size();
-    int[] dist = new int[n];
-    Arrays.fill(dist, Integer.MAX_VALUE);
-    dist[start] = 0;
-
-    PriorityQueue<Node> pq = new PriorityQueue<>();
-    pq.add(new Node(start, 0));
-
-    while (!pq.isEmpty()) {
-      Node current = pq.poll();
-      int u = current.vertex;
-
-      for (Edge edge : graph.get(u)) {
-        int v = edge.to;
-        int weight = edge.weight;
-
-        if (dist[u] + weight < dist[v]) {
-          dist[v] = dist[u] + weight;
-          pq.add(new Node(v, dist[v]));
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerText = "✅ Copied";
+                setTimeout(() => btn.innerText = "📋 Copy", 1500);
+            });
         }
-      }
-    }
-
-    System.out.println("Khoảng cách từ đỉnh " + start + ":");
-    for (int i = 0; i < n; i++) {
-      System.out.println("→ đến " + i + " = " + dist[i]);
-    }
-  }
-
-  public static void main(String[] args) {
-    try (Scanner sc = new Scanner(System.in)) {
-      System.out.print("Nhập số đỉnh: ");
-      int n = sc.nextInt();
-
-      System.out.print("Nhập số cạnh: ");
-      int m = sc.nextInt();
-
-      List<List<Edge>> graph = new ArrayList<>();
-      for (int i = 0; i < n; i++)
-        graph.add(new ArrayList<>());
-
-      System.out.println("Nhập các cạnh theo dạng: u v w (u đến v, trọng số w)");
-      for (int i = 0; i < m; i++) {
-        int u = sc.nextInt();
-        int v = sc.nextInt();
-        int w = sc.nextInt();
-        graph.get(u).add(new Edge(v, w));
-        // Nếu đồ thị vô hướng thì thêm dòng sau:
-        // graph.get(v).add(new Edge(u, w));
-      }
-
-      System.out.print("Nhập đỉnh bắt đầu: ");
-      int start = sc.nextInt();
-
-      dijkstra(graph, start);
-    }
-  }
-}
-// input
-// Nhập số đỉnh: 6
-// Nhập số cạnh: 7
-// Nhập các cạnh:
-// 0 1 4
-// 0 2 1
-// 2 1 2
-// 1 3 1
-// 2 3 5
-// 3 4 3
-// 4 5 1
-// Nhập đỉnh bắt đầu: 0
-
-// output
-// Khoảng cách từ đỉnh 0:
-// → đến 0 = 0
-// → đến 1 = 3
-// → đến 2 = 1
-// → đến 3 = 4
-// → đến 4 = 7
-// → đến 5 = 8
-</code></pre>
-</details>
-<details>
-    <summary>3. Segment Tree (Update + Query Sum)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
-<pre><code>
-package hihi;
-
-import java.util.Scanner;
-
-class SegmentTree {
-    int n;
-    int[] tree;
-
-    // Khởi tạo từ mảng ban đầu
-    SegmentTree(int[] arr) {
-        n = arr.length;
-        tree = new int[4 * n];
-        build(arr, 1, 0, n - 1);
-    }
-
-    // Xây dựng cây
-    void build(int[] arr, int node, int l, int r) {
-        if (l == r) {
-            tree[node] = arr[l];
-        } else {
-            int mid = (l + r) / 2;
-            build(arr, 2 * node, l, mid);
-            build(arr, 2 * node + 1, mid + 1, r);
-            tree[node] = tree[2 * node] + tree[2 * node + 1];
-        }
-    }
-
-    // Query sum trên đoạn [ql, qr]
-    int query(int node, int l, int r, int ql, int qr) {
-        if (qr < l || ql > r) return 0;
-        if (ql <= l && r <= qr) return tree[node];
-        int mid = (l + r) / 2;
-        return query(2 * node, l, mid, ql, qr)
-             + query(2 * node + 1, mid + 1, r, ql, qr);
-    }
-
-    int query(int ql, int qr) {
-        return query(1, 0, n - 1, ql, qr);
-    }
-
-    // Update
-    void update(int node, int l, int r, int idx, int val) {
-        if (l == r) {
-            tree[node] = val;
-        } else {
-            int mid = (l + r) / 2;
-            if (idx <= mid)
-                update(2 * node, l, mid, idx, val);
-            else
-                update(2 * node + 1, mid + 1, r, idx, val);
-
-            tree[node] = tree[2 * node] + tree[2 * node + 1];
-        }
-    }
-
-    void update(int idx, int val) {
-        update(1, 0, n - 1, idx, val);
-    }
-
-    // ================= MAIN =================
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // Nhập mảng
-        System.out.print("Nhập số phần tử: ");
-        int n = sc.nextInt();
-        int[] arr = new int[n];
-
-        System.out.println("Nhập các phần tử:");
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
-
-        SegmentTree st = new SegmentTree(arr);
-
-        // Menu
-        while (true) {
-            System.out.println("\n===== MENU =====");
-            System.out.println("1. Query tổng đoạn [l, r]");
-            System.out.println("2. Update giá trị tại vị trí idx");
-            System.out.println("0. Thoát");
-            System.out.print("Chọn: ");
-
-            int choice = sc.nextInt();
-
-            if (choice == 0) {
-                System.out.println("Đã thoát chương trình.");
-                break;
-            }
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Nhập l: ");
-                    int l = sc.nextInt();
-                    System.out.print("Nhập r: ");
-                    int r = sc.nextInt();
-                    System.out.println("Tổng [" + l + "," + r + "] = " + st.query(l, r));
-                    break;
-
-                case 2:
-                    System.out.print("Nhập vị trí idx: ");
-                    int idx = sc.nextInt();
-                    System.out.print("Nhập giá trị mới: ");
-                    int val = sc.nextInt();
-                    st.update(idx, val);
-                    System.out.println("Đã update!");
-                    break;
-
-                default:
-                    System.out.println("Lựa chọn không hợp lệ!");
-            }
-        }
-
-        sc.close();
-    }
-}
-</code></pre>
-</details>
-<details>
-    <summary>4. QuickSort & MergeSort</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
-<pre><code>
-package hihi;
-
-import java.util.*;
-
-public class SortCompare {
-    // QuickSort
-    static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int pi = partition(arr, low, high);
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
-    }
-
-    static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
-        int i = low - 1;
-        for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                i++;
-                int tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
-            }
-        }
-        int tmp = arr[i + 1]; arr[i + 1] = arr[high]; arr[high] = tmp;
-        return i + 1;
-    }
-
-    // MergeSort
-    static void mergeSort(int[] arr, int l, int r) {
-        if (l < r) {
-            int m = (l + r) / 2;
-            mergeSort(arr, l, m);
-            mergeSort(arr, m + 1, r);
-            merge(arr, l, m, r);
-        }
-    }
-
-    static void merge(int[] arr, int l, int m, int r) {
-        int n1 = m - l + 1;
-        int n2 = r - m;
-        int[] L = new int[n1];
-        int[] R = new int[n2];
-        for (int i = 0; i < n1; i++) L[i] = arr[l + i];
-        for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
-
-        int i = 0, j = 0, k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) arr[k++] = L[i++];
-            else arr[k++] = R[j++];
-        }
-        while (i < n1) arr[k++] = L[i++];
-        while (j < n2) arr[k++] = R[j++];
-    }
-
-    public static void main(String[] args) {
-        int n = 1_000_000;
-        Random rand = new Random();
-
-        // Tạo mảng ngẫu nhiên
-        int[] arr1 = new int[n];
-        for (int i = 0; i < n; i++) arr1[i] = rand.nextInt(1_000_000);
-
-        // Copy cho MergeSort
-        int[] arr2 = Arrays.copyOf(arr1, n);
-
-        // QuickSort
-        long start = System.currentTimeMillis();
-        quickSort(arr1, 0, n - 1);
-        long end = System.currentTimeMillis();
-        System.out.println("QuickSort time: " + (end - start) + " ms");
-
-        // MergeSort
-        start = System.currentTimeMillis();
-        mergeSort(arr2, 0, n - 1);
-        end = System.currentTimeMillis();
-        System.out.println("MergeSort time: " + (end - start) + " ms");
-    }
-}
-</code></pre>
-</details>
-<details>
-    <summary>5. LIS O(n log n)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋</button>
-<pre><code>
-package hihi;
-import java.util.*;
-public class LIS {
-    static List<Integer> lisSequence(int[] arr) {
-        int n = arr.length;
-        int[] tail = new int[n];     // lưu giá trị
-        int[] pos = new int[n];      // lưu vị trí trong arr
-        int[] prev = new int[n];     // truy vết phần tử trước
-        Arrays.fill(prev, -1);
-
-        int length = 0;
-
-        for (int i = 0; i < n; i++) {
-            int x = arr[i];
-            // tìm vị trí chèn bằng binary search
-            int idx = Arrays.binarySearch(tail, 0, length, x);
-            if (idx < 0) idx = -(idx + 1);
-
-            tail[idx] = x;
-            pos[idx] = i;
-
-            if (idx > 0) prev[i] = pos[idx - 1];
-            if (idx == length) length++;
-        }
-
-        // Truy ngược để dựng LIS
-        List<Integer> lis = new ArrayList<>();
-        int p = pos[length - 1];
-        while (p != -1) {
-            lis.add(arr[p]);
-            p = prev[p];
-        }
-        Collections.reverse(lis);
-        return lis;
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nhập số phần tử: ");
-        int n = sc.nextInt();
-        int[] arr = new int[n];
-
-        System.out.println("Nhập mảng:");
-        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
-
-        List<Integer> lis = lisSequence(arr);
-        System.out.println("Độ dài LIS = " + lis.size());
-        System.out.println("Dãy LIS: " + lis);
-    }
-}
-</code></pre>
-</details>
-<details>
-    <summary>6. Dijkstra-Tìm đường đi ngắn nhất (Ma trận kề)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
-
-<pre><code>
-package hihi;
-
-import java.util.*;
-
-public class DijkstraMatrix {
-
-    static final int INF = 1_000_000_000;
-
-    static void dijkstra(int[][] graph, int start) {
-        int n = graph.length;
-        int[] dist = new int[n];
-        boolean[] visited = new boolean[n];
-
-        Arrays.fill(dist, INF);
-        dist[start] = 0;
-
-        for (int i = 0; i < n - 1; i++) {
-            // Tìm đỉnh chưa thăm có dist nhỏ nhất
-            int u = -1;
-            int min = INF;
-
-            for (int v = 0; v < n; v++) {
-                if (!visited[v] && dist[v] < min) {
-                    min = dist[v];
-                    u = v;
-                }
-            }
-
-            if (u == -1) break;
-
-            visited[u] = true;
-
-            // Cập nhật các đỉnh kề
-            for (int v = 0; v < n; v++) {
-                if (!visited[v]
-                        && graph[u][v] > 0        // có cạnh
-                        && dist[u] + graph[u][v] < dist[v]) {
-
-                    dist[v] = dist[u] + graph[u][v];
-                }
-            }
-        }
-
-        System.out.println("Khoảng cách ngắn nhất từ đỉnh " + start + ":");
-        for (int i = 0; i < n; i++) {
-            System.out.println("→ đến " + i + " = " + dist[i]);
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nhập số đỉnh: ");
-        int n = sc.nextInt();
-
-        int[][] graph = new int[n][n];
-
-        System.out.println("Nhập ma trận kề:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                graph[i][j] = sc.nextInt();
-            }
-        }
-
-        System.out.print("Nhập đỉnh bắt đầu: ");
-        int start = sc.nextInt();
-
-        dijkstra(graph, start);
-        sc.close();
-    }
-}
-//Input
-//Nhập số đỉnh: 6
-//Nhập ma trận kề (0 = không có cạnh):
-//0 7 9 0 0 14
-//0 0 10 15 0 0
-//0 0 0 11 0 2
-//0 0 0 0 6 0
-//0 0 0 0 0 0
-//0 0 0 0 0 0
-//Nhập đỉnh bắt đầu: 0
-//Output
-//Khoảng cách ngắn nhất từ đỉnh 0:
-//→ đến 0 = 0
-//→ đến 1 = 7
-//→ đến 2 = 9
-//→ đến 3 = 20
-//→ đến 4 = 26
-//→ đến 5 = 11
-</code></pre>
-</details>
-<details>
-    <summary>7. DFS (Danh sách kề)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
-
-<pre><code>
-import java.util.*;
-
-public class DFSPathInput {
-    static List<List<Integer>> adj;
-    static boolean[] visited;
-    static int[] parent;
-    static boolean found = false;
-
-    static void dfs(int u, int v) {
-        visited[u] = true;
-
-        if (u == v) {
-            found = true;
-            return;
-        }
-
-        for (int x : adj.get(u)) {
-            if (!visited[x]) {
-                parent[x] = u;
-                dfs(x, v);
-                if (found) return;
-            }
-        }
-    }
-
-    static void printPath(int u, int v) {
-        if (!found) {
-            System.out.println("Khong co duong di tu " + u + " den " + v);
-            return;
-        }
-
-        List<Integer> path = new ArrayList<>();
-        for (int cur = v; cur != -1; cur = parent[cur]) {
-            path.add(cur);
-        }
-        Collections.reverse(path);
-
-        System.out.print("Duong di tu " + u + " den " + v + ": ");
-        for (int x : path) {
-            System.out.print(x + " ");
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nhap so dinh n: ");
-        int n = sc.nextInt();
-
-        System.out.print("Nhap so canh m: ");
-        int m = sc.nextInt();
-
-        adj = new ArrayList<>();
-        for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
-
-        System.out.println("Nhap cac canh:");
-        for (int i = 0; i < m; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            adj.get(a).add(b);
-            adj.get(b).add(a); // bỏ dòng này nếu đồ thị có hướng
-        }
-
-        visited = new boolean[n];
-        parent = new int[n];
-        Arrays.fill(parent, -1);
-
-        System.out.print("Nhap dinh bat dau u: ");
-        int u = sc.nextInt();
-
-        System.out.print("Nhap dinh ket thuc v: ");
-        int v = sc.nextInt();
-
-        dfs(u, v);
-        printPath(u, v);
-    }
-}
-//input
-//6
-//6
-//0 1
-//0 2
-//1 3
-//2 4
-//3 5
-//4 5
-/0
-/5
-//output
-//Duong di tu 0 den 5: 0 1 3 5
-</code></pre>
-</details>
-<details>
-    <summary>8. DFS (Ma trận kề)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
-
-<pre><code>
-import java.util.*;
-
-public class DFSAdjMatrix {
-    static int[][] adj;      // ma trận kề
-    static boolean[] visited;
-    static int[] parent;
-    static int n;
-    static boolean found = false;
-
-    static void dfs(int u, int v) {
-        visited[u] = true;
-
-        if (u == v) {
-            found = true;
-            return;
-        }
-
-        for (int i = 0; i < n; i++) {
-            if (adj[u][i] == 1 && !visited[i]) {
-                parent[i] = u;
-                dfs(i, v);
-                if (found) return; // dừng khi đã tìm thấy v
-            }
-        }
-    }
-
-    static void printPath(int u, int v) {
-        if (!found) {
-            System.out.println("Khong co duong di tu " + u + " den " + v);
-            return;
-        }
-
-        List<Integer> path = new ArrayList<>();
-        for (int cur = v; cur != -1; cur = parent[cur]) {
-            path.add(cur);
-        }
-        Collections.reverse(path);
-
-        System.out.print("Duong di tu " + u + " den " + v + ": ");
-        for (int x : path) {
-            System.out.print(x + " ");
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nhap so dinh n: ");
-        n = sc.nextInt();
-
-        adj = new int[n][n];
-        System.out.println("Nhap ma tran ke:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                adj[i][j] = sc.nextInt();
-            }
-        }
-
-        visited = new boolean[n];
-        parent = new int[n];
-        Arrays.fill(parent, -1);
-
-        System.out.print("Nhap dinh bat dau u: ");
-        int u = sc.nextInt();
-
-        System.out.print("Nhap dinh ket thuc v: ");
-        int v = sc.nextInt();
-
-        dfs(u, v);
-        printPath(u, v);
-    }
-}
-//input
-//6
-//0 1 1 0 0 0
-//1 0 0 1 0 0
-//1 0 0 0 1 0
-//0 1 0 0 0 1
-//0 0 1 0 0 1
-//0 0 0 1 1 0
-//0 5
-//output
-//Duong di tu 0 den 5: 0 1 3 5
-</code></pre>
-</details>
-<details>
-    <summary>9. BFS (Danh sách kề)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
-
-<pre><code>
-import java.util.*;
-
-public class BFSAdjList {
-    static List<List<Integer>> adj;
-    static boolean[] visited;
-    static int[] parent;
-    static int n;
-
-    static void bfs(int u, int v) {
-        Queue<Integer> queue = new LinkedList<>();
-        visited[u] = true;
-        queue.add(u);
-
-        while (!queue.isEmpty()) {
-            int cur = queue.poll();
-
-            if (cur == v) return; // tìm thấy v thì dừng
-
-            for (int x : adj.get(cur)) {
-                if (!visited[x]) {
-                    visited[x] = true;
-                    parent[x] = cur;
-                    queue.add(x);
-                }
-            }
-        }
-    }
-
-    static void printPath(int u, int v) {
-        if (!visited[v]) {
-            System.out.println("Khong co duong di tu " + u + " den " + v);
-            return;
-        }
-
-        List<Integer> path = new ArrayList<>();
-        for (int cur = v; cur != -1; cur = parent[cur]) {
-            path.add(cur);
-        }
-        Collections.reverse(path);
-
-        System.out.print("Duong di tu " + u + " den " + v + ": ");
-        for (int x : path) {
-            System.out.print(x + " ");
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nhap so dinh n: ");
-        n = sc.nextInt();
-
-        System.out.print("Nhap so canh m: ");
-        int m = sc.nextInt();
-
-        adj = new ArrayList<>();
-        for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
-
-        System.out.println("Nhap cac canh:");
-        for (int i = 0; i < m; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            adj.get(a).add(b);
-            adj.get(b).add(a); // bỏ dòng này nếu đồ thị có hướng
-        }
-
-        visited = new boolean[n];
-        parent = new int[n];
-        Arrays.fill(parent, -1);
-
-        System.out.print("Nhap dinh bat dau u: ");
-        int u = sc.nextInt();
-
-        System.out.print("Nhap dinh ket thuc v: ");
-        int v = sc.nextInt();
-
-        bfs(u, v);
-        printPath(u, v);
-    }
-}
-//input
-//6
-//6
-//0 1
-//0 2
-//1 3
-//2 4
-//3 5
-//4 5
-//0
-//5
-//output
-//Duong di tu 0 den 5: 0 1 3 5
-</code></pre>
-</details>
-<details>
-    <summary>10. BFS (Ma trận kề)</summary>
-    <button class="copy-btn" onclick="copyFromDetails(this)">📋 </button>
-
-<pre><code>
-import java.util.*;
-
-public class BFSAdjMatrix {
-    static int[][] adj;      // ma trận kề
-    static boolean[] visited;
-    static int[] parent;
-    static int n;
-
-    static void bfs(int u, int v) {
-        Queue<Integer> queue = new LinkedList<>();
-        visited[u] = true;
-        queue.add(u);
-
-        while (!queue.isEmpty()) {
-            int cur = queue.poll();
-
-            if (cur == v) return; // tìm thấy v thì dừng
-
-            for (int i = 0; i < n; i++) {
-                if (adj[cur][i] == 1 && !visited[i]) {
-                    visited[i] = true;
-                    parent[i] = cur;
-                    queue.add(i);
-                }
-            }
-        }
-    }
-
-    static void printPath(int u, int v) {
-        if (!visited[v]) {
-            System.out.println("Khong co duong di tu " + u + " den " + v);
-            return;
-        }
-
-        List<Integer> path = new ArrayList<>();
-        for (int cur = v; cur != -1; cur = parent[cur]) {
-            path.add(cur);
-        }
-        Collections.reverse(path);
-
-        System.out.print("Duong di tu " + u + " den " + v + ": ");
-        for (int x : path) {
-            System.out.print(x + " ");
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nhap so dinh n: ");
-        n = sc.nextInt();
-
-        adj = new int[n][n];
-        System.out.println("Nhap ma tran ke:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                adj[i][j] = sc.nextInt();
-            }
-        }
-
-        visited = new boolean[n];
-        parent = new int[n];
-        Arrays.fill(parent, -1);
-
-        System.out.print("Nhap dinh bat dau u: ");
-        int u = sc.nextInt();
-
-        System.out.print("Nhap dinh ket thuc v: ");
-        int v = sc.nextInt();
-
-        bfs(u, v);
-        printPath(u, v);
-    }
-}
-//input 
-//6
-//0 1 1 0 0 0
-//1 0 0 1 0 0
-//1 0 0 0 1 0
-//0 1 0 0 0 1
-//0 0 1 0 0 1
-//0 0 0 1 1 0
-//0 5
-//output
-//Duong di tu 0 den 5: 0 1 3 5
-</code></pre>
-</details>
-<script>
-function copyFromDetails(btn) {
-    const details = btn.closest("details");
-    const code = details.querySelector("code").innerText;
-
-    navigator.clipboard.writeText(code).then(() => {
-        btn.innerText = "✅ Copied";
-        setTimeout(() => btn.innerText = "📋 Copy", 1500);
-    });
-}
-</script>
+    </script>
 
 </body>
+
 </html>
